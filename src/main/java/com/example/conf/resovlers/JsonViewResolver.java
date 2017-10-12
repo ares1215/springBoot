@@ -1,4 +1,4 @@
-package com.example.resovlers;
+package com.example.conf.resovlers;
 
 import java.util.Locale;
 

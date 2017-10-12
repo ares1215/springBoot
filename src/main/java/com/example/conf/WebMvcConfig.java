@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.conf;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.example.resovlers.JsonViewResolver;
+import com.example.conf.resovlers.JsonViewResolver;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
