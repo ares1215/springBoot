@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public ModelAndView hello() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
