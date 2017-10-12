@@ -5,13 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HelloWorldController {
+public class HelloController {
 	
 	@RequestMapping("/")
 	public ModelAndView hello() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		mav.addObject("msg", "index!!");
+		
+		System.out.println("index!!");
 		
 		return mav;
 	}

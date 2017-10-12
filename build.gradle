@@ -25,6 +25,7 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-devtools')
 	
 	//Required dependency for JSP & JSTL
     compile('org.apache.tomcat.embed:tomcat-embed-jasper')
