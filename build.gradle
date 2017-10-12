@@ -24,13 +24,16 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-web")
 	// hot swapping
-	compile('org.springframework.boot:spring-boot-devtools')
+	compile("org.springframework.boot:spring-boot-devtools")
 	
-	//Required dependency for JSP & JSTL
-    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
-	compile('javax.servlet:jstl:1.2')
+	// jsp & jstl
+    compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+	compile("javax.servlet:jstl:1.2")
 	
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	// security
+	compile("org.springframework.boot:spring-boot-starter-security")
+	
+	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
