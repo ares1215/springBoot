@@ -3,7 +3,8 @@
 <head>
 </head>
 <body>
-	<h1>${msg}</h1><br>
-	<h2>test asdfsd</h2>
+	<h1>${msg}</h1>
+	<br>
+	<h2>test</h2>
 </body>
 </html>

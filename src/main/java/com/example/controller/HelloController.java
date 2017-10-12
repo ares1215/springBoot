@@ -13,8 +13,6 @@ public class HelloController {
 		mav.setViewName("index");
 		mav.addObject("msg", "index!!");
 		
-		System.out.println("index!!");
-		
 		return mav;
 	}
 
