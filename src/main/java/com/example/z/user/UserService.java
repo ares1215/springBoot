@@ -3,16 +3,22 @@ package com.example.z.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
-	UserDao userDao;
-	
-	public List<User> getList() throws Exception {
-		return userDao.findAll();
+	UserRepository userRepository;
+
+	public List<User> getListAll() {
+		return (List<User>) userRepository.findAll();
+	}
+
+	public Page<User> getListByPage(Pageable pageable) throws Exception {
+		return (Page<User>) userRepository.findAll(pageable);
 	}
 
 	public void add() {
@@ -20,8 +26,14 @@ public class UserService {
 		user.setLoginId("test");
 		user.setName("test");
 		user.setPassword("1234");
-		
-		userDao.save(user);
+
+		userRepository.save(user);
+	}
+	
+	public void update() {
+		User user = userRepository.findOne(7);
+		user.setName("아아아아");
+		userRepository.save(user);
 	}
 
 }
