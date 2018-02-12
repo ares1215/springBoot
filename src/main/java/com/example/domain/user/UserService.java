@@ -35,5 +35,4 @@ public class UserService {
 		user.setName("아아아아");
 		userRepository.save(user);
 	}
-
 }

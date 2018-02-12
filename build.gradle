@@ -26,6 +26,11 @@ repositories {
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
+	compile('org.springframework:spring-context-support')
+	
+	//Quartz
+	compile('org.quartz-scheduler:quartz:2.2.1')
+	
 	// hot swapping
 	compile("org.springframework.boot:spring-boot-devtools")
 	
@@ -48,7 +53,4 @@ dependencies {
 	
 	//POI
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
-	
-	//Quartz
-	compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.2.1'
 }
