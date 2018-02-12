@@ -1,4 +1,4 @@
-package com.example.z.user;
+package com.example.domain.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

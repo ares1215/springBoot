@@ -1,4 +1,4 @@
-package com.example.conf;
+package com.example.sys.conf;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		// public
-		http.authorizeRequests().antMatchers("/", "/index.abc").permitAll();
+		http.authorizeRequests().antMatchers("/", "/index").permitAll();
 
 		// admin
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");

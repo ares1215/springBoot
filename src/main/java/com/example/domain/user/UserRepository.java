@@ -1,4 +1,4 @@
-package com.example.z.user;
+package com.example.domain.user;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

@@ -45,4 +45,10 @@ dependencies {
 	
 	//H2DB
 	runtime("com.h2database:h2")
+	
+	//POI
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
+	
+	//Quartz
+	compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.2.1'
 }

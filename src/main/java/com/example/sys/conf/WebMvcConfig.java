@@ -1,9 +1,7 @@
-package com.example.conf;
+package com.example.sys.conf;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,29 +14,23 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
-import com.example.conf.resovlers.JsonViewResolver;
+import com.example.sys.resovlers.JsonViewResolver;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("redirect:/index.abc");
+		registry.addViewController("/").setViewName("redirect:/index");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 
 		super.addViewControllers(registry);
 	}
 
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		configurer.ignoreAcceptHeader(true);
-
-		Map<String, MediaType> mediaTypes = new HashMap<String, MediaType>();
-		mediaTypes.put("abc", MediaType.TEXT_HTML);
-
-		configurer.mediaTypes(mediaTypes);
-
-		configurer.defaultContentType(MediaType.APPLICATION_JSON);
+		configurer.ignoreAcceptHeader(true).defaultContentType(MediaType.TEXT_HTML);
 	}
 
 	@Bean
@@ -48,8 +40,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 		List<ViewResolver> viewResolvers = new ArrayList<ViewResolver>();
 
-		viewResolvers.add(jsonViewResolver());
 		viewResolvers.add(jspViewResolver());
+		viewResolvers.add(jsonViewResolver());
 
 		resolver.setViewResolvers(viewResolvers);
 
@@ -64,7 +56,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public ViewResolver jspViewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix("WEB-INF/views/");
+		viewResolver.setViewClass(JstlView.class);
+		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
 
 		return viewResolver;

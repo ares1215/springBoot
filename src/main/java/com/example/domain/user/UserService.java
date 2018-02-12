@@ -1,4 +1,4 @@
-package com.example.z.user;
+package com.example.domain.user;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class UserService {
 	}
 	
 	public void update() {
-		User user = userRepository.findOne(7);
+		User user = userRepository.findOne(1);
 		user.setName("아아아아");
 		userRepository.save(user);
 	}
