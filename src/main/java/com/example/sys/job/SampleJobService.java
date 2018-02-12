@@ -9,7 +9,7 @@ public class SampleJobService {
 	static final Logger logger = Logger.getLogger(SampleJobService.class);
 
 	public void task() {
-		logger.info("execute task...");
+		logger.info("com.example.sys.job.SampleJobService.task()");
 	}
 
 }

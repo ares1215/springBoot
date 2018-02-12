@@ -11,7 +11,7 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 
 import com.example.sys.job.SampleJob;
 
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
 	static final Logger logger = Logger.getLogger(QuartzConfig.class);
@@ -19,7 +19,8 @@ public class QuartzConfig {
 	@Bean
 	public SchedulerFactoryBean schedulerFactoryBean() {
 		SchedulerFactoryBean scheduler = new SchedulerFactoryBean();
-		scheduler.setTriggers(simpleTriggerFactoryBean().getObject(), cronTriggerFactoryBean().getObject());
+		// scheduler.setTriggers(simpleTriggerFactoryBean().getObject(), cronTriggerFactoryBean().getObject());
+		scheduler.setTriggers(cronTriggerFactoryBean().getObject());
 
 		return scheduler;
 	}

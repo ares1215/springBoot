@@ -1,19 +1,17 @@
 package com.example.sys.job;
 
 import org.apache.log4j.Logger;
+import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.QuartzJobBean;
 
-public class SampleJob extends QuartzJobBean {
+public class SampleJob implements Job {
 
 	static final Logger logger = Logger.getLogger(SampleJob.class);
-	
-	@Override
-	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-		// TODO Auto-generated method stub
-		logger.info("com.example.sys.job.SampleJob.executeInternal(JobExecutionContext)");
-	}
 
+	@Override
+	public void execute(JobExecutionContext context) throws JobExecutionException {
+		// TODO Auto-generated method stub
+		logger.info("com.example.sys.job.SampleJob.execute(JobExecutionContext)");
+	}
 }
