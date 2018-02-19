@@ -14,7 +14,7 @@ public class ScheduledTasks {
 		logger.info("com.example.sys.job.ScheduledTasks.rate()");
 	}
 	
-	@Scheduled(cron = "0/10 * * * * ?")
+//	@Scheduled(cron = "0/10 * * * * ?")
 	public void cron() {
 		logger.info("com.example.sys.job.ScheduledTasks.cron()");
 	}

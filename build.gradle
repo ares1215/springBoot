@@ -44,13 +44,16 @@ dependencies {
 	
 	// JPA
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	compile("org.springframework.boot:spring-boot-starter-jdbc")	
+	compile("org.springframework.boot:spring-boot-starter-jdbc")
 	
-	testCompile("org.springframework.boot:spring-boot-starter-test")
+	// MySQL
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 	
 	//H2DB
 	runtime("com.h2database:h2")
 	
 	//POI
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
+	
+	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
