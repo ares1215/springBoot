@@ -15,7 +15,7 @@
 <body>
 	<div>list</div>
 	<div>
-		<c:forEach var="user" items="${users.content}">
+		<c:forEach var="user" items="${user.content}">
 			<div>${user.id}, ${user.name}</div>
 		</c:forEach>
 	</div>
