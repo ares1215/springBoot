@@ -23,6 +23,13 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs += ["src/main/sys"]
+        }
+    }
+}
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
