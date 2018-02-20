@@ -6,24 +6,25 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ExcelParser {
 
-	static final Logger logger = Logger.getLogger(ExcelParser.class);
+	private static final Logger logger = LoggerFactory.getLogger(ExcelParser.class);
 
 	public static void validate() {
 		int rowCount = 0;
 		FileInputStream fileInputStream = null;
 		Workbook xssfWorkbook = null;
 
-		System.out.println(new Date());
+		logger.info("start time : {}", new Date());
 
 		try {
 			fileInputStream = new FileInputStream(new File("D:\\tmp\\test.xlsx"));
@@ -39,11 +40,9 @@ public class ExcelParser {
 					rowCount++;
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellTypeEnum() == CellType.STRING) {
-						// logger.info(currentCell.getStringCellValue() + "--str");
-						// System.out.println(currentCell.getStringCellValue() + "--str");
+						logger.info("{} {}", currentCell.getStringCellValue(), "--str");
 					} else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-						// logger.info(currentCell.getNumericCellValue() + "--num");
-						// System.out.println(currentCell.getNumericCellValue() + "--num");
+						logger.info("{} {}", currentCell.getNumericCellValue(), "--num");
 					}
 				}
 
@@ -60,6 +59,6 @@ public class ExcelParser {
 				}
 		}
 
-		System.out.println(rowCount + " : " + new Date());
+		logger.info("end time : {}, rowCount : {}", new Date(), rowCount);
 	}
 }

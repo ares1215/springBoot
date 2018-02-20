@@ -1,20 +1,20 @@
 package com.example.sys.job;
 
-import org.apache.log4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ScheduledTasks {
+public class ScheduledTask {
 
-	static final Logger logger = Logger.getLogger(ScheduledTasks.class);
+	private static final Logger logger = LoggerFactory.getLogger(ScheduledTask.class);
 
-//	@Scheduled(fixedRate = 5000)
+	// @Scheduled(fixedRate = 5000)
 	public void rate() {
 		logger.info("com.example.sys.job.ScheduledTasks.rate()");
 	}
-	
-//	@Scheduled(cron = "0/10 * * * * ?")
+
+	// @Scheduled(cron = "0/10 * * * * ?")
 	public void cron() {
 		logger.info("com.example.sys.job.ScheduledTasks.cron()");
 	}

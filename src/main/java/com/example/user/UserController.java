@@ -1,45 +1,44 @@
 package com.example.user;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
 
+	@SuppressWarnings("unused")
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("listAll")
-	public ModelAndView listAll() throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", userService.getListAll());
-
-		return mav;
-	}
-
 	@RequestMapping("list")
-	public ModelAndView list(Pageable pageable) throws Exception {
-		ModelAndView mav = new ModelAndView();
+	public String list(Model model, Pageable pageable) throws Exception {
 		Page<User> results = userService.getListByPage(pageable);
+		model.addAttribute("user", results);
 
-		mav.addObject("users", results);
-
-		return mav;
+		return "user/list";
 	}
 
 	@RequestMapping("add")
-	public void add() throws Exception {
-		userService.add();
-	}
-	
-	@RequestMapping("update")
-	public void update() throws Exception {
-		userService.update();
+	public void add(User user) throws Exception {
+		userService.add(user);
 	}
 
+	@RequestMapping("edit")
+	public void edit(User user) throws Exception {
+		userService.edit(user);
+	}
+
+	@RequestMapping("remove")
+	public void remove(Long id) throws Exception {
+		userService.remove(id);
+	}
 }
