@@ -62,5 +62,9 @@ dependencies {
 	//POI
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
 	
+	// https://mvnrepository.com/artifact/commons-codec/commons-codec
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+	
+	
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
